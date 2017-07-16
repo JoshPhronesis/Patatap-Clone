@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Circles</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="text/javascript" src="assets/js/lib/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+        
+        var circleArr = [];
+        function onKeyDown(event) {
+            // When a key is pressed, set the content of the text item:
+            var randomPoint = Point.random();
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var circle;
+            var point = maxPoint * randomPoint;
+            circle = new Path.Circle(point, 200);
+            circle.fillColor = 'yellow';
+            circleArr.push(circle);
+        }
+        
+        function onFrame(event){
+            for(var i=0; i<circleArr.length;i++){
+                circleArr[i].fillColor.hue +=1;
+                circleArr[i].scale(0.95);
+            }
+        }
+        
+    </script>
+    <script type="text/javascript" src="assets/js/"></script>
+</head>
+<body>
+    <canvas id="canvas" resize ></canvas>
+    
+</body>
+</html>
